@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightskyblue;
+        }
+        header {
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        header ul {
+            list-style-type: none;
+        }
+        header li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+        header a {
+            text-decoration: none;
+        }
+        .container {
+            background-color: palevioletred;
+            width: 340px;
+            height: 280px;
+            text-align: center;
+            padding: 5px;
+            border-radius: 5px;
+            margin: auto;
+            margin-top: 15%;
+        }
+        @media screen and (max-width:500px) {
+            header {
+            font-size: 0.46rem;
+            height: 35px;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>
+            <img src="./information.png" alt="information" 
+                style="filter: invert(33%) sepia(91%) saturate(500%) hue-rotate(190deg) brightness(95%) contrast(90%);
+                height: 20px;"/>
+            This application is created by a Google Apps Script user
+        </p>
+        <ul>
+            <li><a href="#">Report abuse</a></li>
+            <li><a href="#">Learn More</a></li>
+            <li><a href="#" style="color: black;">X</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Internal-1 Marks</h1>
+            <h3>B Tech 3rd Semester</h3>
+            <p>Enter unique Number+DOB(ddmmyyyy)</p>
+            <form onsubmit="return check(event)">
+                <input type="text" size="40" style="height: 25px;" id="in" /><br />
+                <button type="submit" style="margin-top: 4px; background-color: darkgreen; 
+                color: white; padding: 8px 20px; border: none;">Submit</button>
+            </form>
+            <p id="msg" style="color: red; font-weight: bold;"></p>
+        </div>
+    </main>
+
+    <script>
+        function check(event) {
+            event.preventDefault(); // stops form from reloading the page
+
+            // Your registered data
+            const checkReg1 = 2401292080;
+            const checkDob1 = 12102005;
+
+            const checkReg2 = 2401292598;
+            const checkDob2 = parseInt("09122006");
+           
+
+            const checkReg3 = 2401292745;
+            const checkDob3 = 19092006;
+
+            const checkReg4 = 2401292669;
+            const checkDob4 = parseInt("03012006");
+            const checkReg5 = 2401292112;
+            const checkDob5 = 25122005;
+
+            const data = document.getElementById("in").value.trim();
+            const reg = parseInt(data.slice(0, 10));
+            const dob = parseInt(data.slice(10));
+
+            if (checkDob1 === dob && checkReg1 === reg) {
+                window.location.href = "resulta.html"; // redirect to next page
+            }  if (checkDob2 === dob && checkReg2 === reg) {
+                window.location.href = "resultas.html"; // redirect to next page
+            }  if (checkDob3 === dob && checkReg3 === reg) {
+                window.location.href = "results.html"; // redirect to next page
+            }  if (checkDob4=== dob && checkReg4 === reg) {
+                window.location.href = "resulto.html"; // redirect to next page
+            } 
+             if (checkDob5=== dob && checkReg5 === reg) {
+                window.location.href = "resultd.html"; // redirect to next page
+            }
+            else {
+                document.getElementById("msg").textContent =
+                    "Access Denied: code not found";
+            }
+        }
+    </script>
+</body>
+</html
